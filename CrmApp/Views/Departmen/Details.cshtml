@@ -1,0 +1,27 @@
+﻿@model CrmApp.Models.Departman
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="card">
+    <h5 class="card-header">Departman Detayı</h5>
+    <div class="card-body">
+
+        <div>
+            <h4>Departman</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    Departman Adı
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DepartmanName)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model?.Id">Düzenle</a> |
+            <a asp-action="Index">Listeye Geri Dön</a>
+        </div>
+    </div>
+</div>

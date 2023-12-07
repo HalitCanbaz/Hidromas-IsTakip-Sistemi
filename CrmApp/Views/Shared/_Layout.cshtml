@@ -1,0 +1,406 @@
+﻿<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <base href=".~/">
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="~/images/favicon.png">
+    <!-- Page Title  -->
+    <title>Default Dashboard | DashLite Admin Template</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" href="~/assets/css/dashlite.css?ver=3.0.0">
+    <link id="skin-default" rel="stylesheet" href="~/assets/css/theme.css?ver=3.0.0">
+</head>
+
+<body class="nk-body bg-lighter npc-default has-sidebar ">
+    <div class="nk-app-root">
+        <!-- main s -->
+        <div class="nk-main ">
+            <!-- sidebar s -->
+            <div class="nk-sidebar nk-sidebar-fixed is-light " data-content="sidebarMenu">
+                <div class="nk-sidebar-element nk-sidebar-head">
+                    <div class="nk-sidebar-brand">
+                        <a asp-controller="Home" asp-action="Index" class="logo-link nk-sidebar-logo">
+                            <img class="logo-light logo-img" src="~/images/h5.png" srcset="~/images/h5.png 2x" alt="logo">
+                            <img class="logo-dark logo-img" src="~/images/h5.png" srcset="~/images/h5.png 2x" alt="logo-dark">
+                            <img class="logo-small logo-img logo-img-small" src="~/images/h5.png" srcset="~/images/h5.png 2x" alt="logo-small">
+                        </a>
+                    </div>
+                    <div class="nk-menu-trigger me-n2">
+                        <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em class="icon ni ni-arrow-left"></em></a>
+                        <a href="#" class="nk-nav-compact nk-quick-nav-icon d-none d-xl-inline-flex" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                    </div>
+                </div><!-- .nk-sidebar-element -->
+                <div class="nk-sidebar-element">
+                    <div class="nk-sidebar-content">
+                        <div class="nk-sidebar-menu" data-simplebar>
+                            <ul class="nk-menu">
+
+                                <li class="nk-menu-heading">
+                                    <h6 class="overline-title text-primary-alt">Analizler</h6>
+                                </li><!-- .nk-menu-heading -->
+                                <li class="nk-menu-item">
+                                    <a href="#" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-growth-fill"></em></span>
+                                        <span class="nk-menu-text">Bitirme Analizlerim</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+
+
+
+                                <li class="nk-menu-heading">
+                                    <h6 class="overline-title text-primary-alt">Uygulamalar</h6>
+                                </li><!-- .nk-menu-heading -->
+                                <li class="nk-menu-item has-sub">
+                                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb-fill"></em></span>
+                                        <span class="nk-menu-text">Projeler / İşler</span>
+                                    </a>
+
+                                    <ul class="nk-menu-sub">
+                                        <li class="nk-menu-item">
+                                            <a asp-controller="Works" asp-action="Create" class="nk-menu-link"><span class="nk-menu-text">Yeni İş Oluştur</span></a>
+                                        </li>
+                                        <li class="nk-menu-item">
+                                            <a asp-controller="Works" asp-action="WorksApprovedList" class="nk-menu-link"><span class="nk-menu-text">Onaylanacak İşler</span></a>
+                                        </li>
+                                        <li class="nk-menu-item">
+                                            <a href="html/project-list.html" class="nk-menu-link"><span class="nk-menu-text">Açtığım İşler</span></a>
+                                        </li>
+
+                                    </ul><!-- .nk-menu-sub -->
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item has-sub">
+                                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-users-fill"></em></span>
+                                        <span class="nk-menu-text">Kullanıcı İşlemleri</span>
+                                    </a>
+                                    <ul class="nk-menu-sub">
+                                        <li class="nk-menu-item">
+                                            <a asp-controller="User" asp-action="UserDetails" class="nk-menu-link"><span class="nk-menu-text">Profilim</span></a>
+                                        </li>
+                                        <li class="nk-menu-item">
+                                            <a asp-controller="User" asp-action="ChangePassword" class="nk-menu-link"><span class="nk-menu-text">Şifre Değiştir</span></a>
+                                        </li>
+
+                                    </ul><!-- .nk-menu-sub -->
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="#" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-puzzle-fill"></em></span>
+                                        <span class="nk-menu-text">Yarışma / Etkinlik</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+
+
+
+                                <li class="nk-menu-item has-sub">
+                                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-file-docs"></em></span>
+                                        <span class="nk-menu-text">Duyurular</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+
+                                <li class="nk-menu-item">
+                                    <a href="html/gallery.html" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-img"></em></span>
+                                        <span class="nk-menu-text">Galerim</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+
+                                <li class="nk-menu-item">
+                                    <a href="#" class="nk-menu-link">
+                                        <span class="nk-menu-icon">
+
+                                            <em class="icon ni ni-block-over"></em>
+
+                                        </span>
+                                        <span class="nk-menu-text">İletişim</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item has-sub">
+                                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                                        <span class="nk-menu-icon">
+                                            <em class="icon ni ni-setting"></em>
+                                        </span>
+                                        <span class="nk-menu-text">Ayarlar / Tanımlar</span>
+                                    </a>
+
+                                    <ul class="nk-menu-sub">
+                                        <li class="nk-menu-item has-sub">
+                                            <a href="#" class="nk-menu-link nk-menu-toggle">
+                                                <span class="nk-menu-icon"><em class="icon ni ni-user-list"></em></span>
+                                                <span class="nk-menu-text">Kullanıcı Tanım</span>
+                                            </a>
+                                            <ul class="nk-menu-sub">
+                                                <li class="nk-menu-item">
+                                                    <a asp-controller="User" asp-action="UserList" class="nk-menu-link"><span class="nk-menu-text">Kullanıcı Listesi</span></a>
+                                                </li>
+                                                
+                                            </ul><!-- .nk-menu-sub -->
+                                        </li><!-- .nk-menu-item -->
+                                        <li class="nk-menu-item has-sub">
+                                            <a href="#" class="nk-menu-link nk-menu-toggle">
+                                                <span class="nk-menu-icon"> <em class="icon ni ni-flag-fill"></em></span>
+                                                <span class="nk-menu-text">Departman Tanım</span>
+                                            </a>
+                                            <ul class="nk-menu-sub">
+                                                <li class="nk-menu-item">
+                                                    <a asp-controller="Departmen" asp-action="Create" class="nk-menu-link"><span class="nk-menu-text">Departman Oluştur</span></a>
+                                                </li>
+                                                <li class="nk-menu-item">
+                                                    <a asp-controller="Departmen" asp-action="Index" class="nk-menu-link"><span class="nk-menu-text">Departman Listesi</span></a>
+                                                </li>
+
+                                            </ul><!-- .nk-menu-sub -->
+                                        </li><!-- .nk-menu-item -->
+
+                                        <li class="nk-menu-item has-sub">
+                                            <a href="#" class="nk-menu-link nk-menu-toggle">
+                                                <span class="nk-menu-icon"> <em class="icon ni ni-layers-fill"></em></span>
+                                                <span class="nk-menu-text">Kategori Tanım</span>
+                                            </a>
+                                            <ul class="nk-menu-sub">
+                                                <li class="nk-menu-item">
+                                                    <a asp-controller="TaskCategory" asp-action="Create" class="nk-menu-link"><span class="nk-menu-text">Kategori Oluştur</span></a>
+                                                </li>
+                                                <li class="nk-menu-item">
+                                                    <a asp-controller="TaskCategory" asp-action="List" class="nk-menu-link"><span class="nk-menu-text">Kategori Listesi</span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                                                
+                                        <li class="nk-menu-item has-sub">
+                                            <a href="#" class="nk-menu-link nk-menu-toggle">
+                                                <span class="nk-menu-icon"> <em class="icon ni ni-tranx"></em>   </span>
+                                                <span class="nk-menu-text">Rol İşlemleri</span>
+                                            </a>
+                                            <ul class="nk-menu-sub">
+                                                <li class="nk-menu-item">
+                                                    <a asp-controller="Role" asp-action="CreateRole" class="nk-menu-link"><span class="nk-menu-text">Rol Oluştur</span></a>
+                                                </li>
+                                                <li class="nk-menu-item">
+                                                    <a asp-controller="Role" asp-action="RoleList" class="nk-menu-link"><span class="nk-menu-text">Rol Listesi</span></a>
+                                                </li>
+                                            </ul><!-- .nk-menu-sub -->
+                                        </li><!-- .nk-menu-item -->
+                                    </ul><!-- .nk-menu-sub -->
+                                </li><!-- .nk-menu-item -->
+                            </ul><!-- .nk-menu -->
+                        </div><!-- .nk-sidebar-menu -->
+                    </div><!-- .nk-sidebar-content -->
+                </div><!-- .nk-sidebar-element -->
+            </div>           
+            <div class="nk-wrap ">
+                <div class="nk-header nk-header-fixed is-light">
+                    <div class="container-fluid">
+                        <div class="nk-header-wrap">
+                            <div class="nk-menu-trigger d-xl-none ms-n1">
+                                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                            </div>
+                            <div class="nk-header-brand d-xl-none">
+                                <a href="html/index.html" class="logo-link">
+                                    <img class="logo-light logo-img" src="~/images/logo.png" srcset="~/images/logo2x.png 2x" alt="logo">
+                                    <img class="logo-dark logo-img" src="~/images/logo-dark.png" srcset="~/images/logo-dark2x.png 2x" alt="logo-dark">
+                                </a>
+                            </div><!-- .nk-header-brand -->
+                            <div class="nk-header-search ms-3 ms-xl-0">
+                                <em class="icon ni ni-search"></em>
+                                <input type="text" class="form-control border-transparent form-focus-none" placeholder="Search anything">
+                            </div><!-- .nk-header-news -->
+                            <div class="nk-header-tools">
+                                <ul class="nk-quick-nav">
+                                    <li class="dropdown language-dropdown d-none d-sm-block me-n1">
+                                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                                            <div class="quick-icon border border-light">
+                                                <img class="icon" src="~/images/flags/turkey.png" alt="">
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-s1">
+                                            <ul class="language-list">
+                                                <li>
+                                                    <a class="language-item">
+                                                        <img src="~/images/flags/english.png" alt="" class="language-flag">
+                                                        <span class="language-name">English</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="language-item">
+                                                        <img src="~/images/flags/spanish.png" alt="" class="language-flag">
+                                                        <span class="language-name">Español</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="language-item">
+                                                        <img src="~/images/flags/french.png" alt="" class="language-flag">
+                                                        <span class="language-name">Français</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="language-item">
+                                                        <img src="~/images/flags/turkey.png" alt="" class="language-flag">
+                                                        <span class="language-name">Türkçe</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li><!-- .dropdown -->
+                                    <li class="dropdown chats-dropdown hide-mb-xs">
+                                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                                            <div class="icon-status icon-status-na"><em class="icon ni ni-comments"></em></div>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-xl dropdown-menu-end">
+                                            <div class="dropdown-head">
+                                                <span class="sub-title nk-dropdown-title">Chat</span>
+                                                @*                                                <a href="#">Setting</a>
+                                                *@
+                                            </div>
+                                            <div class="dropdown-body">
+                                                <ul class="chat-list">
+                                                    <li class="chat-item">
+                                                        <a class="chat-link">
+                                                            <div class="chat-media user-avatar">
+                                                                <span>HC</span>
+                                                                <span class="status dot dot-lg dot-gray"></span>
+                                                            </div>
+                                                            <div class="chat-info">
+                                                                <div class="chat-from">
+                                                                    <div class="name">Halit Canbaz</div>
+                                                                    <span class="time">Şimdi</span>
+                                                                </div>
+                                                                <div class="chat-context">
+                                                                    <div class="text">Test mesajı.</div>
+                                                                    <div class="status delivered">
+                                                                        <em class="icon ni ni-check-circle-fill"></em>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li><!-- .chat-item -->
+                                                </ul><!-- .chat-list -->
+                                            </div><!-- .nk-dropdown-body -->
+                                            <div class="dropdown-foot center">
+                                                <a>Hepsini Gör</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown notification-dropdown">
+                                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                                            <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-xl dropdown-menu-end">
+                                            <div class="dropdown-head">
+                                                <span class="sub-title nk-dropdown-title">Bildirimler</span>
+                                            </div>
+                                            <div class="dropdown-body">
+                                                <div class="nk-notification">
+                                                    <div class="nk-notification-item dropdown-inner">
+                                                        <div class="nk-notification-icon">
+                                                            <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
+                                                        </div>
+                                                        <div class="nk-notification-content">
+                                                            <div class="nk-notification-text">Hesabınıza giriş yapıldı <span>Test</span></div>
+                                                            <div class="nk-notification-time">2 saat önce</div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- .nk-notification -->
+                                            </div><!-- .nk-dropdown-body -->
+                                            <div class="dropdown-foot center">
+                                                <a>Hepsini Gör</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown user-dropdown">
+                                        <a href="#" class="dropdown-toggle me-n1" data-bs-toggle="dropdown">
+                                            <div class="user-toggle">
+                                                <div class="user-avatar sm">
+                                                    <em>
+                                                        <img src="~/userpicture/default.jpg" />
+                                                    </em>
+                                                </div>
+                                                <div class="user-info d-none d-xl-block">
+                                                    <div class="user-status user-status-unverified"></div>
+                                                    <div class="user-name dropdown-indicator">@User.Identity.Name</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-end">
+                                            <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
+                                                <div class="user-card">
+                                                    <div class="user-avatar">
+                                                        <span> <img src="~/userpicture/default.jpg" /></span>
+                                                    </div>
+                                                    <div class="user-info">
+                                                        <span class="lead-text">@User.Identity.Name</span>
+                                                        <span class="sub-text">@TempData["UserMail"]</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dropdown-inner">
+                                                <ul class="link-list">
+                                                    <li><a asp-controller="User" asp-action="UserDetails"><em class="icon ni ni-user-alt"></em><span>Kullanıcı Profili</span></a></li>
+                                                    <li><a asp-controller="User" asp-action="ChangePassword"><em class="icon ni ni-setting-alt"></em><span>Şifre Değiştir</span></a></li>
+                                                    @*                                                    <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
+                                                    *@
+                                                    <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Karanlık Modu</span></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="dropdown-inner">
+                                                <ul class="link-list">
+                                                    <li><a asp-controller="User" asp-action="Logout"><em class="icon ni ni-signout"></em><span>Çıkış Yap</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!-- .nk-header-wrap -->
+                    </div><!-- .container-fliud -->
+                </div>
+                <!-- main header e -->
+                <!-- content s -->
+                <div class="nk-content ">
+                    @RenderBody()
+
+                </div>
+                <!-- content e -->
+                <!-- footer s -->
+                <!-- footer e -->
+            </div>
+            <!-- wrap e -->
+        </div>
+        <!-- main e -->
+    </div>
+    <!-- app-root e -->
+    <!-- select region modal -->
+    <!-- JavaScript -->
+    <script src="~/assets/js/bundle.js?ver=3.0.0"></script>
+    <script src="~/assets/js/scripts.js?ver=3.0.0"></script>
+    <script src="~/assets/js/charts/chart-ecommerce.js?ver=3.0.0"></script>
+</body>
+
+</html>
+
+@await RenderSectionAsync("Scripts", required: false)
+
+@*<div class="count-indicator">
+    <img class="img-xs rounded-circle " src="~/userpicture/@TempData["UserPicture"]" alt="">
+    <span class="count bg-success"></span>
+</div>
+<div class="profile-name">
+    <h5 class="mb-0 font-weight-normal">
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            @TempData["UserName"]
+        }
+
+    </h5>
+    <span>
+        @ViewBag.userPicture
+    </span>
+    <partial name="_HeaderNamePartial">*@

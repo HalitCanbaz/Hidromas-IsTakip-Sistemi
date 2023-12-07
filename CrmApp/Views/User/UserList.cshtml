@@ -1,0 +1,185 @@
+﻿@{
+    ViewData["Title"] = "UserList";
+}
+@model List<UserListViewModel>
+<div class="nk-tb-list is-separate mb-1">
+    <div class="nk-tb-item nk-tb-head">
+        <div class="nk-tb-col"><span class="sub-text"><h4>Kullanıcı Listesi</h4></span></div>
+    </div>
+</div>
+<div class="nk-block-between my-1">
+    <div class="nk-block-head-content">
+    </div><!-- .nk-block-head-content -->
+    <div class="nk-block-head-content">
+        <div class="toggle-wrap nk-block-tools-toggle">
+            <a href="#" class="btn btn-icon btn-trigger toggle-expand me-n1" data-target="more-options"><em class="icon ni ni-more-v"></em></a>
+            <div class="toggle-expand-content" data-content="more-options">
+                <ul class="nk-block-tools g-3">
+                    <li>
+                        <div class="form-control-wrap">
+                            <div class="form-icon form-icon-right">
+                                <em class="icon ni ni-search"></em>
+                            </div>
+                            <input type="text" class="form-control" id="searchInput" placeholder="Kullanıcı Ara">
+                        </div>
+                    </li>
+                    <li class="nk-block-tools-opt">
+                        <a class="btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
+                        <a class="btn btn-success d-none d-md-inline-flex"><em class="icon ni ni-plus"></em><span>Yeni Kullanıcı Ekle</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- .nk-block-head-content -->
+</div><!-- .nk-block-between -->
+<div class="nk-block">
+    <div class="nk-tb-list is-separate mb-3">
+        <div class="nk-tb-item nk-tb-head">
+            <div class="nk-tb-col"><span class="sub-text">Kullanıcı Kodu</span></div>
+            <div class="nk-tb-col tb-col-md"><span class="sub-text">Telefon</span></div>
+            <div class="nk-tb-col tb-col-md"><span class="sub-text">Yetki</span></div>
+            <div class="nk-tb-col tb-col-md"><span class="sub-text">Durum</span></div>
+        </div>
+    </div><!-- .nk-tb-item -->
+</div><!-- .nk-tb-list -->
+<div class="nk-tb-list is-separate mb-3">
+    @foreach (var item in Model)
+    {
+        <div class="nk-tb-item">
+            <div class="nk-tb-col">
+                <div class="user-card">
+                    <div class="user-avatar">
+                        <img src="~/userpicture/default.jpg" alt="">
+                    </div>
+                    <div class="user-info">
+                        <span class="tb-lead"> @item.UserName <span class="dot dot-info d-md-none ms-1"></span></span>
+                        <span>@item.Email</span>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-tb-col tb-col-mb">
+                <span class="tb-amount">@item.Phone</span>
+            </div>
+            <div class="nk-tb-col tb-col-md">
+                <span>
+                    <user-role-names user-id="@item.Id"></user-role-names>
+                </span>
+            </div>
+            <div class="nk-tb-col tb-col-md">
+                <span class="tb-status text-info">aktif</span>
+            </div>
+            <div class="nk-tb-col nk-tb-col-tools">
+                <ul class="nk-tb-actions gx-1">
+                    <li class="nk-tb-action-hidden">
+                        <a class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Kullanıcı Detayları">
+                            <em class="icon ni ni-eye"></em>
+                        </a>
+                    </li>
+
+                    <li>
+                        <div class="drodown">
+                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <ul class="link-list-opt no-bdr">
+                                    <li> <a asp-controller="Role" asp-action="AssignRoleToUser" asp-route-id="@item.Id"><em class="icon ni ni-eye"></em><span>Yetki Atama</span></a></li>
+                                    <li><a><em class="icon ni ni-repeat"></em><span>Kullanıcı Detayları</span></a></li>
+                                    <li><a><em class="icon ni ni-shield-star"></em><span>Şifresini Sıfırla</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
+</div>
+           
+
+
+
+
+@*
+    <div class="card">
+    <h5 class="card-header">Personel Listesi</h5>
+    <div class="card-body">
+
+    <!-- Arama Kutusu Ekleyin -->
+    <input type="text" id="searchInput" placeholder="İsim Ara">
+    <button id="exportToExcel">Excel'e Aktar</button>
+
+
+
+    <!-- Personel Listesi Tablosu -->
+    <table id="personellistele" class="table">
+    <thead>
+    <th>UserName</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>rol işlemleri</th>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+    <tr>
+    <td>@item.UserName</td>
+    <td>@item.Email</td>
+    <td>@item.Phone</td>
+    <td>
+    <user-role-names user-id="@item.Id"></user-role-names>
+    </td>
+    <td>
+    <a asp-controller="Role" asp-action="AssignRoleToUser" asp-route-id="@item.Id">rol ata</a>
+    </td>
+    </tr>
+    }
+    </tbody>
+    </table>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+
+
+    <script>
+    $(document).ready(function () {
+    $("#searchInput").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#personellistele tbody tr").filter(function () {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+    });
+    });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+    $("#searchInput").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#personellistele tbody tr").filter(function () {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+    });
+
+    $("#exportToExcel").on("click", function () {
+    exportTableToExcel();
+    });
+
+    function exportTableToExcel() {
+    var htmltable = document.getElementById('personellistele');
+    var html = htmltable.outerHTML;
+
+    var blob = new Blob([html], {
+    type: 'application/vnd.officedocument.spreadsheetml.sheet'
+    });
+    var a = document.createElement('a');
+    a.href = window.URL.createObjectURL(blob);
+    a.download = 'personel_listesi.xls';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    }
+    });
+    </script>
+    *@

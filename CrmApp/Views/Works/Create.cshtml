@@ -1,0 +1,96 @@
+﻿@model CrmApp.Models.Works
+
+@{
+    ViewData["Title"] = "Create";
+}
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hidromas</title>
+    <link rel="stylesheet" href="~/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/assets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="~/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="shortcut icon" href="~/assets/images/favicon.png" />
+</head>
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper">
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">İş Atama sayfası</h4>
+                                    <form asp-action="Create">
+                                        <p class="card-description"> Yeni İş ata </p>
+                                        @if (@TempData["message"] != null)
+                                        {
+                                            <div class="alert alert-icon alert-success" role="alert">
+                                                @TempData["message"]
+                                            </div>
+                                        }
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <label class="control-label">Açılacak İşin Konusu</label>
+                                            <input asp-for="Title" class="form-control" />
+                                            <span asp-validation-for="Title" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Açılacak İşin Açıklaması</label>
+                                            <input asp-for="Description" class="form-control" />
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Bitirilmesi İstenen Tarih</label>
+                                            <input asp-for="DeadLine" class="form-control" />
+                                            <span asp-validation-for="DeadLine" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">İşin Kime Açılacağı</label>
+                                            <div class="form-control-wrap">
+                                                <select asp-for="AppUserId" class="form-select js-select2" data-search="on" asp-items="ViewBag.AppUserId"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Açılacak İşin Kategorisi</label>
+                                            <div class="form-control-wrap">
+                                                <select asp-for="CategoriesId" class="form-select js-select2" data-search="on" asp-items="ViewBag.CategoryId"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" value="Create" class="btn btn-info" />
+                                        </div>
+                                    </form>
+                                    <div>
+                                        <a asp-action="Index" class="btn btn-secondary">Açtığım İş Listesine Geri Dön</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script src="~/assets/vendors/js/vendor.bundle.base.js"></script>
+                <script src="~/assets/vendors/select2/select2.min.js"></script>
+                <script src="~/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+                <script src="~/assets/js/off-canvas.js"></script>
+                <script src="~/assets/js/hoverable-collapse.js"></script>
+                <script src="~/assets/js/misc.js"></script>
+                <script src="~/assets/js/settings.js"></script>
+                <script src="~/assets/js/todolist.js"></script>
+                <script src="~/assets/js/file-upload.js"></script>
+                <script src="~/assets/js/typeahead.js"></script>
+                <script src="~/assets/js/select2.js"></script>
+</body>
+</html>

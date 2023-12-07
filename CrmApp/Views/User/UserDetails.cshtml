@@ -1,0 +1,59 @@
+﻿@model UserDetailsViewModel
+@{
+    ViewData["Title"] = "UserDetails";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Profilim</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+
+            <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Fotoğraf</h4>
+                        @*                        <img class="rounded" src="~/userpicture/@Model.PictureUrl" style="width:300px">
+                        *@
+                        <user-picture picture-url="@Model.PictureUrl" class="rounded" style="width:300px"></user-picture>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-8 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title"> Kullanıcı Bilgilerim</h4>
+                        <div class="form-group row">
+                            <label for="exampleInputUsername2" class=" col-sm-3 col-form-label">Kullanıcı Adı</label>
+                            <div class="col-sm-9">
+                                <label type="text" class="mdi mdi-account form-control">@Model.UserName</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Eposta adresi</label>
+                            <div class="col-sm-9">
+                                <label type="text" class="mdi mdi-email-outline form-control">@Model.Email</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="exampleInputMobile" class="col-sm-3 col-form-label">Telefon</label>
+                            <div class="col-sm-9">
+                                <label type="text" class="mdi mdi-cellphone-android form-control">@Model.Phone</label>
+                            </div>
+                        </div>
+                        <a class="btn btn-primary" asp-controller="User" asp-action="UserEdit">Bilgileri Güncelle</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

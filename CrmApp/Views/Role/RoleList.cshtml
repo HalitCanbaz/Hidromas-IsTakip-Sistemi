@@ -1,0 +1,46 @@
+﻿@model List<RoleListViewModel>
+
+@{
+    ViewData["Title"] = "RoleList";
+}
+
+<div class="card">
+    <h5 class="card-header">Departman Oluştur</h5>
+    <h3>@if (TempData["message"] != null)
+    {
+        @TempData["message"]
+    }
+    </h3>
+    <div class="card-body">
+        <p>          
+            <a class="btn btn-secondary" asp-controller="Role" asp-action="CreateRole">Yeni Rol Oluştur</a>            
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Rol İsmi
+                    </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.RoleName
+                        </td>
+
+                        <td>
+                            <a class="btn btn-warning" asp-controller="Role" asp-action="RoleUpdate" asp-route-id="@item.Id">düzelt</a> |
+                            <a class="btn btn-danger" asp-controller="Role" asp-action="RoleDelete" asp-route-id="@item.Id">sil</a> |
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
