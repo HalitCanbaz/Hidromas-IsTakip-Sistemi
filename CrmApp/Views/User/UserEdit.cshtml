@@ -25,7 +25,19 @@
             <span class="text-danger" asp-validation-for="UserName"></span>
         </div>
     </div>
-
+    <div class="row mb-3">
+        <label for="NameSurname" class="col-sm-2 col-form-label" asp-for="NameSurname"></label>
+        <div class="col-sm-10">
+            <input asp-for="NameSurname" class="form-control">
+            <span class="text-danger" asp-validation-for="NameSurname"></span>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label asp-for="DepartmanId " class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <select class="form-select js-select2" data-search="on" asp-for="DepartmanId" class="form-control" asp-items="ViewBag.DepartmanId"></select>
+        </div>
+    </div>
     <div class="row mb-3">
         <label for="Email" class="col-sm-2 col-form-label" asp-for="Email"></label>
         <div class="col-sm-10">

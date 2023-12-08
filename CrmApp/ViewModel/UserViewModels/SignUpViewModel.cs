@@ -8,6 +8,9 @@ namespace CrmApp.ViewModel.UserViewModels
         [Required(ErrorMessage = "Kullanıcı ad alanı boş bırakılamaz!")]
         public string UserName { get; set; }
 
+        [Display(Name = "Ad & Soyad")]
+        [Required(ErrorMessage = "Ad Soyad alanı boş bırakılamaz!")]
+        public string NameSurname { get; set; }
 
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Email alanı boş bırakılamaz!")]

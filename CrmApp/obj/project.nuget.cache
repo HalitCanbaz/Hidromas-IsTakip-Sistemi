@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pM2PYmwqd3BrzBEzVkSGgQnuUjFWFpY3U1MYnCyiK61NM8eT/wNW65EHz5qheQ2K6GxsiMHkDnA29qrdFaEZGA==",
+  "dgSpecHash": "rslYCFgkbYXmhBQBf0GfD1Ljcj2E+2xLE/4eRxU5CfO5PIONO7Kj2Ax1GyX1vYE0M0wRxv8Negaxkdl92s6lhw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hcanbaz\\Documents\\GitHub\\Crm-App-main\\CrmApp\\CrmApp.csproj",
+  "projectFilePath": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\CrmApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hcanbaz\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\hcanbaz\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

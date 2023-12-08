@@ -1,80 +1,101 @@
 ﻿@model DetailWork
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                konu
-            </th>
-            <th>
-                açıklama
-            </th>
-            <th>
-                Kim açtı
-            </th>
-            <th>
-               durum
-            </th>
-            <th>
-                ilerleme
-            </th>
-            <th>
-                açılma
-            </th>
-            <th>
-                güncelleme
-            </th>
-            <th>
-                istenen
-            </th>
-            <th>
-                bitirme
-            </th>
-            <th>
-                kullanıcı
-            </th>
-            <th>
-                kategori
-            </th>            
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <th>
-            @Model.Title
-        </th>
-        <th>
-            @Model.Description
-        </th>
-        <th>
-           @Model.WhoIsCreate
-        </th>
-        <th>
-            @Model.Status
-        </th>
-        <th>
-            @Model.Progress
-        </th>
-        <th>
-            @Model.Create
-        </th>
-        <th>
-            @Model.Update
-        </th>
-        <th>
-            @Model.DeadLine
-        </th>
-        <th>
-            @Model.Finished
-        </th>
-        <th>
-            @Model.AppUser
-        </th>
-        <th>
-            @Model.Categories
-        </th>
-        <th></th>
-        </tr>
+<div class="card card-bordered card-preview">
+    <div class="card-inner">
+        <div id="DataTables_Table_3_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+            <div class="row justify-between g-2 with-export">
+                <div class="card-inner">
+                    <div class="preview-block">
+                        <h4 class="my-4">İşinizin Detayı</h4>
+                        <div class="row gy-4">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-control-wrap">
+                                        <div class="alert alert-pro alert-dark">
+                                            <div class="alert-text">
+                                                <h6>İşi Açan Kişi</h6>
+                                                <p>@Model.WhoIsCreate </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="alert alert-pro alert-danger">
+                                        <div class="alert-text">
+                                            <h6>İşin Kategorisi</h6>
+                                            <p>@Model.Categories </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="alert alert-pro alert-info">
+                                        <div class="alert-text">
+                                            <h6>İşin Konusu</h6>
+                                            <p>@Model.Title </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="alert alert-pro alert-info">
+                                        <div class="alert-text">
+                                            <h6>İşin Açıldığı Tarih</h6>
+                                            <p>@Model.Create </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="alert alert-pro alert-info">
+                                        <div class="alert-text">
+                                            <h6>İşin İstenen Bitiş Tarihi</h6>
+                                            <p>@Model.DeadLine </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="alert alert-pro alert-success">
+                                        <div class="alert-text">
+                                            <h6>İşin Açıklaması</h6>
+                                            <p>@Model.Description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form asp-action="WorkStatusFinished" asp-controller="Works" asp-route-id="@Model.Id" method="post">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label" for="default-textarea"><h5>İşin Tamamlanma Detayları</h5></label>
+                                        <div class="form-control-wrap">
+                                            <textarea class="form-control no-resize" id="default-textarea" placeholder="Lütfen işin detaylarını bu alana yazınız"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
 
-    </tbody>
-</table>
+
+                                <div class="col-sm-3 my-4">
+                                    @if (Model.Status == "başlandı")
+                                    {
+                                        <button type="submit" class="btn btn-danger">İşi Tamamla</button>
+
+                                    }
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+

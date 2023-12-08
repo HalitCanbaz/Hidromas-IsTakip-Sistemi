@@ -2,6 +2,8 @@
     ViewData["Title"] = "UserList";
 }
 @model List<UserListViewModel>
+
+
 <div class="nk-tb-list is-separate mb-1">
     <div class="nk-tb-item nk-tb-head">
         <div class="nk-tb-col"><span class="sub-text"><h4>Kullanıcı Listesi</h4></span></div>
@@ -36,6 +38,7 @@
     <div class="nk-tb-list is-separate mb-3">
         <div class="nk-tb-item nk-tb-head">
             <div class="nk-tb-col"><span class="sub-text">Kullanıcı Kodu</span></div>
+            <div class="nk-tb-col tb-col-md"><span class="sub-text">Ad Soyad</span></div>
             <div class="nk-tb-col tb-col-md"><span class="sub-text">Telefon</span></div>
             <div class="nk-tb-col tb-col-md"><span class="sub-text">Yetki</span></div>
             <div class="nk-tb-col tb-col-md"><span class="sub-text">Durum</span></div>
@@ -56,6 +59,9 @@
                         <span>@item.Email</span>
                     </div>
                 </div>
+            </div>
+            <div class="nk-tb-col tb-col-mb">
+                <span class="tb-amount">@item.NameSurname</span>
             </div>
             <div class="nk-tb-col tb-col-mb">
                 <span class="tb-amount">@item.Phone</span>
@@ -93,7 +99,7 @@
         </div>
     }
 </div>
-           
+
 
 
 

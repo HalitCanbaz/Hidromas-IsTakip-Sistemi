@@ -66,11 +66,17 @@
                                             <span class="text-danger" asp-validation-for="UserName"></span>
                                         </div>
                                     </div>
-
+                                    <div class="form-group">
+                                        <label class="form-label" for="NameSurname" asp-for="NameSurname"> </label>
+                                        <div class="form-control-wrap">
+                                            <input asp-for="NameSurname" type="text" class="form-control form-control-lg" id="name" placeholder="Adınızı ve Soyadınızı Giriniz">
+                                            <span class="text-danger" asp-validation-for="NameSurname"></span>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label asp-for="DepartmanId " class="col-sm-5 col-form-label"></label>
                                         <div class="form-control-wrap">
-                                            <select class="form-select js-select2" data-search="on" asp-for="DepartmanId" class="form-control" asp-items="ViewBag.DepartmanId"></select>
+                                            <select class="form-select js-select2" data-search="on"  asp-for="DepartmanId" class="form-control" asp-items="ViewBag.DepartmanId"></select>
                                         </div>
                                     </div>
 
@@ -134,27 +140,4 @@
     <script src="~/assets/js/scripts.js?ver=3.0.0"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

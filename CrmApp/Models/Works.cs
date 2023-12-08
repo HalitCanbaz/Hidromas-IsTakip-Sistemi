@@ -11,6 +11,8 @@ namespace CrmApp.Models
 
         public string Description { get; set; }
 
+        public string? FinishedDescription { get; set; }
+
         public string Status { get; set; }
 
         public byte Progress { get; set; }
@@ -25,11 +27,19 @@ namespace CrmApp.Models
 
         public DateTime Finished { get; set; }
 
+        public int Departman { get; set; }
+
+        public int WorkOpenDepartman { get; set; }
+
         public int AppUserId { get; set; }
         public AppUser AppUser { get; set; }
 
         public int CategoriesId { get; set; }
         public Categories Categories { get; set; }       
+
+
+
+
 
     }
 }

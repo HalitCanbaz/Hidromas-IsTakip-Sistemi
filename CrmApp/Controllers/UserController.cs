@@ -47,14 +47,16 @@ namespace CrmApp.Controllers
             Departman departman = new Departman();
             ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName", departman.Id);
 
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
 
             var result = await _UserManager.CreateAsync(new()
-            { UserName = model.UserName, Email = model.Email, PhoneNumber = model.Phone, DepartmanId = model.DepartmanId, RegisterDate = model.RegisterDate }, model.Password);
+            {
+                UserName = model.UserName,
+                NameSurName = model.NameSurname,
+                Email = model.Email,
+                PhoneNumber = model.Phone,
+                DepartmanId = model.DepartmanId,
+                RegisterDate = model.RegisterDate
+            }, model.Password);
 
 
 
@@ -82,6 +84,7 @@ namespace CrmApp.Controllers
             {
                 Id = x.Id,
                 UserName = x.UserName,
+                NameSurname = x.NameSurName,
                 Email = x.Email,
                 Phone = x.PhoneNumber
 
@@ -150,9 +153,12 @@ namespace CrmApp.Controllers
         public async Task<IActionResult> UserDetails()
         {
             var currentUser = await _UserManager.FindByNameAsync(User.Identity.Name);
+            var currentDepartman = await _context.Departman.Where(x => x.Id == currentUser.DepartmanId).FirstOrDefaultAsync();
             var userEditViewModel = new UserDetailsViewModel
             {
                 UserName = currentUser.UserName,
+                NameSurname = currentUser.NameSurName,
+                Departman = currentDepartman.DepartmanName,
                 Email = currentUser.Email,
                 Phone = currentUser.PhoneNumber,
                 PictureUrl = currentUser.Picture
@@ -162,15 +168,21 @@ namespace CrmApp.Controllers
 
         public async Task<IActionResult> UserEdit()
         {
+            Departman departman = new Departman();
+
+            ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName", departman.Id);
+
             var currentUser = await _UserManager.FindByNameAsync(User.Identity.Name);
+            var currentDepartman = await _context.Departman.Where(x => x.Id == currentUser.DepartmanId).SingleOrDefaultAsync();
+            ViewData["Departman"] = currentDepartman.DepartmanName;
 
             var userEditViewModel = new UserEditViewModel()
             {
                 UserName = currentUser.UserName!,
+                NameSurname = currentUser.NameSurName!,
                 Email = currentUser.Email!,
                 Phone = currentUser.PhoneNumber!,
-                Description = currentUser.Description!,
-
+                Description = currentUser.Description!
             };
 
             return View(userEditViewModel);
@@ -179,17 +191,29 @@ namespace CrmApp.Controllers
         [HttpPost]
         public async Task<IActionResult> UserEdit(UserEditViewModel model)
         {
+            Departman departman = new Departman();
+
+            ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName", departman.Id);
+
+
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
             var currentUser = await _UserManager.FindByNameAsync(User.Identity.Name);
+
+            var currentDepartman = await _context.Departman.Where(x => x.Id == currentUser.DepartmanId).SingleOrDefaultAsync();
+            ViewData["Departman"] = currentDepartman.DepartmanName;
+            ViewData["Id"] = currentDepartman.Id;
+
+
             currentUser.UserName = model.UserName;
+            currentUser.NameSurName = model.NameSurname.ToUpper();
             currentUser.Email = model.Email;
             currentUser.PhoneNumber = model.Phone;
             currentUser.Description = model.Description;
-
+            currentUser.DepartmanId = model.DepartmanId;
 
             if (model.Picture != null && model.Picture.Length > 0)
             {

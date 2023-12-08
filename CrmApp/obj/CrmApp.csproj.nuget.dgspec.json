@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hcanbaz\\Documents\\GitHub\\Crm-App-main\\CrmApp\\CrmApp.csproj": {}
+    "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\CrmApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hcanbaz\\Documents\\GitHub\\Crm-App-main\\CrmApp\\CrmApp.csproj": {
+    "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\CrmApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hcanbaz\\Documents\\GitHub\\Crm-App-main\\CrmApp\\CrmApp.csproj",
+        "projectUniqueName": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\CrmApp.csproj",
         "projectName": "CrmApp",
-        "projectPath": "C:\\Users\\hcanbaz\\Documents\\GitHub\\Crm-App-main\\CrmApp\\CrmApp.csproj",
+        "projectPath": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\CrmApp.csproj",
         "packagesPath": "C:\\Users\\hcanbaz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hcanbaz\\Documents\\GitHub\\Crm-App-main\\CrmApp\\obj\\",
+        "outputPath": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hcanbaz\\AppData\\Roaming\\NuGet\\NuGet.Config",

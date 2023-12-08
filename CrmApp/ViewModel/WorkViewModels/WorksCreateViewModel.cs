@@ -22,5 +22,8 @@
 
         public int CategoriesId { get; set; }
 
+        public int Departman { get; set; }
+
+        public int WorkOpenDepartman { get; set; }
     }
 }

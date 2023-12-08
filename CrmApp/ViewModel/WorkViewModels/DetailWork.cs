@@ -1,4 +1,6 @@
-﻿namespace CrmApp.ViewModel.WorkViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CrmApp.ViewModel.WorkViewModels
 {
     public class DetailWork
     {
@@ -6,6 +8,10 @@
         public string Title { get; set; }
 
         public string Description { get; set; }
+
+        [Required(ErrorMessage ="İşi bitirebilmek için açıklama girmek zorundasınız!")]
+        public string FinishedDescription { get; set; }
+
         public string WhoIsCreate { get; set; }
 
         public string Status { get; set; } 

@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CrmApp.Models.Entities
 {
     public class AppUser : IdentityUser<int>
     {
+        public string NameSurName { get; set; }
+
         public string? Picture { get; set; }
 
         public DateTime? RegisterDate { get; set; }

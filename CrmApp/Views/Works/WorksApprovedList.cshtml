@@ -4,38 +4,118 @@
     ViewData["Title"] = "WorksAppRovedList";
 }
 
-<h1>MyPendingWorksList</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>İşin Konu</th>
-            <th>İşin Açıklama</th>
-            <th>İşin Oluşturma Tarihi</th>
-            <th>İşin İstenen Tarihi</th>
-            <th>İşin Açan Kim</th>
-            <th>Durum</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Title</td>
-                <td>@item.Description</td>
-                <td>@item.Create</td>
-                <td>@item.DeadLine</td>
-                <td>@item.WhoIsCreate</td>
-                <td>@item.Status</td>
-                <td>
-                    <form asp-action="WorksStatusApproval" asp-controller="Works" asp-route-id="@item.Id" method="post">
-                        <button type="submit" class="btn btn-success">Onayla</button>
-                    </form>                 
-                </td>
-                <td>
-                    <a class="btn btn-secondary" asp-action="DetailWork" asp-route-id="@item.Id">Detay</a>
-                </td>
-            </tr>
+<div class="card card-bordered card-preview">
+    <div class="card-inner">
+        <div id="DataTables_Table_3_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+            <div class="row justify-between g-2 with-export">
+                <div class="col-7 col-sm-4 text-start">
+                    <div id="DataTables_Table_3_filter" class="dataTables_filter">
+                        <label>
+                            <input type="search" id="searchInput" class="form-control form-control-sm" placeholder="Ara" aria-controls="DataTables_Table_3">
+                        </label>
+                    </div>
+                </div>
+                <div class="col-5 col-sm-8 text-end">
+                    <div class="datatable-filter">
+                        <div class="d-flex justify-content-end g-2">
+                            <div class="dt-export-buttons d-flex align-center">
+                                <div class="dt-export-title d-none d-md-inline-block">Dışa Aktar</div>
+                                <div class="dt-buttons btn-group flex-wrap">
+                                    <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="DataTables_Table_3" type="button"><span>Copy</span></button>
+                                    <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="DataTables_Table_3" type="button" id="exportToExcel"><span>Excel</span></button>
+                                    <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="DataTables_Table_3" type="button"><span>CSV</span></button>
+                                    <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="DataTables_Table_3" type="button"><span>PDF</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div class="datatable-wrap my-3">
+                <table class="nowrap table dataTable no-footer dtr-inline" data-export-title="Dışa Aktar" id="DataTables_Table_3" aria-describedby="DataTables_Table_3_info">
+                    <thead>
+                        <tr>
+                            <th class="sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">İşi Açan</th>
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">İşin Konusu</th>
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">İşin Açıklaması</th>
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending">İşin Açılma Tarihi</th>
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending">İşin İstenen Bitiş Tarihi</th>
+                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_3" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending">Durumu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="odd">
+                                <td class="dtr-control sorting_1" tabindex="0">@item.WhoIsCreate</td>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td>@item.Create</td>
+                                <td>@item.DeadLine</td>
+                                <td>@item.Status</td>
+                                <td>
+                                    <form asp-action="WorksStatusApproval" asp-controller="Works" asp-route-id="@item.Id" method="post">
+                                        <button type="submit" class="btn btn-warning">Onayla</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <a class="btn btn-secondary" asp-action="DetailWork" asp-route-id="@item.Id">Detay</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $("#searchInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#DataTables_Table_3 tbody tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#searchInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#DataTables_Table_3 tbody tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+
+        $("#exportToExcel").on("click", function () {
+            exportTableToExcel();
+        });
+
+        function exportTableToExcel() {
+            var htmltable = document.getElementById('DataTables_Table_3');
+            var html = htmltable.outerHTML;
+
+            var blob = new Blob([html], {
+                type: 'application/vnd.officedocument.spreadsheetml.sheet'
+            });
+            var a = document.createElement('a');
+            a.href = window.URL.createObjectURL(blob);
+            a.download = 'is_listesi.xls';
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         }
-    </tbody>
-</table>
+    });
+</script>

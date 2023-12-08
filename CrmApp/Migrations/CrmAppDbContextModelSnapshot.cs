@@ -123,6 +123,10 @@ namespace CrmApp.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<string>("NameSurName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -191,12 +195,18 @@ namespace CrmApp.Migrations
                     b.Property<DateTime>("DeadLine")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Departman")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Finished")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("FinishedDescription")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte>("Progress")
                         .HasColumnType("tinyint");
@@ -215,6 +225,9 @@ namespace CrmApp.Migrations
                     b.Property<string>("WhoIsCreate")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WorkOpenDepartman")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

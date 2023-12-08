@@ -9,5 +9,7 @@ namespace CrmApp.Models
 
         public ICollection<AppUser> AppUsers { get; set; }=new HashSet<AppUser>();
 
+
+
     }
 }

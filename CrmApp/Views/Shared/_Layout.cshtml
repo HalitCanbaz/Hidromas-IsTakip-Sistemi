@@ -66,12 +66,14 @@
                                             <a asp-controller="Works" asp-action="Create" class="nk-menu-link"><span class="nk-menu-text">Yeni İş Oluştur</span></a>
                                         </li>
                                         <li class="nk-menu-item">
-                                            <a asp-controller="Works" asp-action="WorksApprovedList" class="nk-menu-link"><span class="nk-menu-text">Onaylanacak İşler</span></a>
+                                            <a asp-controller="Works" asp-action="WorksApprovedList" class="nk-menu-link"><span class="nk-menu-text">Departmana Açılan Onay Bekleyenler</span></a>
                                         </li>
                                         <li class="nk-menu-item">
-                                            <a href="html/project-list.html" class="nk-menu-link"><span class="nk-menu-text">Açtığım İşler</span></a>
+                                            <a asp-controller="Works" asp-action="MyOpenedenWorks" class="nk-menu-link"><span class="nk-menu-text">Departmanın Açtığı İşleri</span></a>
+                                        </li>                                        
+                                        <li class="nk-menu-item">
+                                            <a asp-controller="Works" asp-action="MyWorks" class="nk-menu-link"><span class="nk-menu-text">Bana Açılan İşler</span></a>
                                         </li>
-
                                     </ul><!-- .nk-menu-sub -->
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item has-sub">

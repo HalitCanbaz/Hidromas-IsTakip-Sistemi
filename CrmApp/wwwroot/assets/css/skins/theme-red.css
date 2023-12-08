@@ -114,8 +114,8 @@
 }
 
 .user-avatar, [class^=user-avatar]:not([class*=-group]) {
-  background: #e8757d;
-}
+/*  background: #e8757d;
+*/}
 
 .nk-menu-link:hover,
 .nk-menu-link:hover .nk-menu-icon,
