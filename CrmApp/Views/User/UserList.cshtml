@@ -52,7 +52,16 @@
             <div class="nk-tb-col">
                 <div class="user-card">
                     <div class="user-avatar">
-                        <img src="~/userpicture/default.jpg" alt="">
+                        @if (item.PictureUrl == null)
+                        {
+                            <img src="~/userpicture/default" alt="">
+
+                        }
+                        else
+                        {
+                            <img src="~/userpicture/@item.PictureUrl" alt="">
+
+                        }
                     </div>
                     <div class="user-info">
                         <span class="tb-lead"> @item.UserName <span class="dot dot-info d-md-none ms-1"></span></span>

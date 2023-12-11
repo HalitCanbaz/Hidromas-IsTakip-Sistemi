@@ -70,7 +70,7 @@
                                         </li>
                                         <li class="nk-menu-item">
                                             <a asp-controller="Works" asp-action="MyOpenedenWorks" class="nk-menu-link"><span class="nk-menu-text">Departmanın Açtığı İşleri</span></a>
-                                        </li>                                        
+                                        </li>
                                         <li class="nk-menu-item">
                                             <a asp-controller="Works" asp-action="MyWorks" class="nk-menu-link"><span class="nk-menu-text">Bana Açılan İşler</span></a>
                                         </li>
@@ -142,7 +142,7 @@
                                                 <li class="nk-menu-item">
                                                     <a asp-controller="User" asp-action="UserList" class="nk-menu-link"><span class="nk-menu-text">Kullanıcı Listesi</span></a>
                                                 </li>
-                                                
+
                                             </ul><!-- .nk-menu-sub -->
                                         </li><!-- .nk-menu-item -->
                                         <li class="nk-menu-item has-sub">
@@ -175,7 +175,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                                                
+
                                         <li class="nk-menu-item has-sub">
                                             <a href="#" class="nk-menu-link nk-menu-toggle">
                                                 <span class="nk-menu-icon"> <em class="icon ni ni-tranx"></em>   </span>
@@ -196,7 +196,7 @@
                         </div><!-- .nk-sidebar-menu -->
                     </div><!-- .nk-sidebar-content -->
                 </div><!-- .nk-sidebar-element -->
-            </div>           
+            </div>
             <div class="nk-wrap ">
                 <div class="nk-header nk-header-fixed is-light">
                     <div class="container-fluid">
@@ -321,7 +321,7 @@
                                             <div class="user-toggle">
                                                 <div class="user-avatar sm">
                                                     <em>
-                                                        <img src="~/userpicture/default.jpg" />
+                                                        @await Component.InvokeAsync("UserPictureComponent")
                                                     </em>
                                                 </div>
                                                 <div class="user-info d-none d-xl-block">
@@ -334,7 +334,9 @@
                                             <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
                                                 <div class="user-card">
                                                     <div class="user-avatar">
-                                                        <span> <img src="~/userpicture/default.jpg" /></span>
+                                                        <span>
+                                                            @await Component.InvokeAsync("UserPictureComponent")
+                                                        </span>
                                                     </div>
                                                     <div class="user-info">
                                                         <span class="lead-text">@User.Identity.Name</span>

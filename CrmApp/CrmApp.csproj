@@ -24,6 +24,7 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\images\backround\" />
+    <Folder Include="wwwroot\errorpicture\" />
     <Folder Include="wwwroot\userpicture\" />
   </ItemGroup>
 

@@ -45,6 +45,8 @@ namespace CrmApp.Controllers
         public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
             Departman departman = new Departman();
+
+
             ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName", departman.Id);
 
 
@@ -86,7 +88,9 @@ namespace CrmApp.Controllers
                 UserName = x.UserName,
                 NameSurname = x.NameSurName,
                 Email = x.Email,
-                Phone = x.PhoneNumber
+                Phone = x.PhoneNumber,
+                PictureUrl = x.Picture
+
 
             }).ToList();
             //.Where(x => x.UserName == currentUse.UserName)
@@ -133,7 +137,7 @@ namespace CrmApp.Controllers
 
             if (result.IsLockedOut)
             {
-                ModelState.AddModelError(string.Empty, "Çok sayıda başarısız giriş denemeniz oldu. Kullanıcınız kilitlendi.");
+                ModelState.AddModelError(string.Empty, "Çok sayıda başarısız giriş denemeniz oldu.     Kullanıcınız 10 dakika sonra açılacaktır.");
                 return View();
             }
 

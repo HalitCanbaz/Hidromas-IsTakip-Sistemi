@@ -25,5 +25,6 @@
         public int Departman { get; set; }
 
         public int WorkOpenDepartman { get; set; }
+
     }
 }

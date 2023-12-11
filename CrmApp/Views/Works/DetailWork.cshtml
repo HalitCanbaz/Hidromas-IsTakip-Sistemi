@@ -1,4 +1,8 @@
 ﻿@model DetailWork
+@section Scripts
+    {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
 
 <div class="card card-bordered card-preview">
     <div class="card-inner">
@@ -75,11 +79,11 @@
                                     <div class="form-group">
                                         <label class="form-label" for="default-textarea"><h5>İşin Tamamlanma Detayları</h5></label>
                                         <div class="form-control-wrap">
-                                            <textarea class="form-control no-resize" id="default-textarea" placeholder="Lütfen işin detaylarını bu alana yazınız"></textarea>
+                                            <input asp-for="FinishedDescription" type="text" class="form-control form-control-lg" id="name" placeholder="Adınızı ve Soyadınızı Giriniz">
                                         </div>
+                                        <span class="text-danger" asp-validation-for="FinishedDescription"></span>
                                     </div>
                                 </div>
-
 
                                 <div class="col-sm-3 my-4">
                                     @if (Model.Status == "başlandı")
@@ -96,6 +100,5 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 

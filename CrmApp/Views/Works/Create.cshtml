@@ -39,12 +39,24 @@
                                         {
                                             <div class="alert alert-icon alert-success" role="alert">
                                                 @TempData["message"]
+                                            </div>                                            
+                                        }
+                                        @if (@TempData["timeMessage"] != null)
+                                        {
+                                            <div class="alert alert-icon alert-danger" role="alert">
+                                                @TempData["timeMessage"]
                                             </div>
                                         }
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="form-group col-md-2">
+                                            <label class="control-label">Açılacak İşin Kategorisi</label>
+                                            <div class="form-control-wrap">
+                                                <select asp-for="CategoriesId" class="form-select js-select2" data-search="on" asp-items="ViewBag.CategoryId"></select>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label class="control-label">Açılacak İşin Konusu</label>
-                                            <input asp-for="Title" class="form-control" />
+                                            <input asp-for="Title" class="form-control" placeholder="Maksimum 100 karakter uzunluğunda" />
                                             <span asp-validation-for="Title" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
@@ -52,31 +64,26 @@
                                             <input asp-for="Description" class="form-control" />
                                             <span asp-validation-for="Description" class="text-danger"></span>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Bitirilmesi İstenen Tarih</label>
+                                        <div class="form-group col-2">
+                                            <label class="control-label">Talep Edilen Tarih</label>
                                             <input asp-for="DeadLine" class="form-control" />
                                             <span asp-validation-for="DeadLine" class="text-danger"></span>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-2">
                                             <label class="control-label">İşin Kime Açılacağı</label>
                                             <div class="form-control-wrap">
                                                 <select asp-for="AppUserId" class="form-select js-select2" data-search="on" asp-items="ViewBag.AppUserId"></select>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Açılacak İşin Kategorisi</label>
-                                            <div class="form-control-wrap">
-                                                <select asp-for="CategoriesId" class="form-select js-select2" data-search="on" asp-items="ViewBag.CategoryId"></select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-2">
                                             <label class="control-label">Departman</label>
                                             <div class="form-control-wrap">
                                                 <select asp-for="Departman" class="form-select js-select2" data-search="on" asp-items="ViewBag.DepartmanId"></select>
                                             </div>
                                         </div>
+                                      
                                         <div class="form-group">
-                                            <input type="submit" value="Create" class="btn btn-info" />
+                                            <input type="submit" value="Oluştur" class="btn btn-info" />
                                         </div>
                                     </form>
                                     <div>
@@ -100,3 +107,5 @@
                 <script src="~/assets/js/select2.js"></script>
 </body>
 </html>
+
+

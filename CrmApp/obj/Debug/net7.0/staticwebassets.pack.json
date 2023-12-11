@@ -2713,36 +2713,12 @@
       "PackagePath": "staticwebassets\\scss\\vendors\\toastr\\_toastr.scss"
     },
     {
-      "Id": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\wwwroot\\userpicture\\2c0eef1a-67cd-43ed-b013-d92dd8cb0911.PNG",
-      "PackagePath": "staticwebassets\\userpicture\\2c0eef1a-67cd-43ed-b013-d92dd8cb0911.PNG"
-    },
-    {
-      "Id": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\wwwroot\\userpicture\\2f7cc351-62e3-41fe-a203-af9c02bc1167.jpg",
-      "PackagePath": "staticwebassets\\userpicture\\2f7cc351-62e3-41fe-a203-af9c02bc1167.jpg"
-    },
-    {
-      "Id": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\wwwroot\\userpicture\\315101dc-9f00-47cc-9a5f-52d9302c0245.PNG",
-      "PackagePath": "staticwebassets\\userpicture\\315101dc-9f00-47cc-9a5f-52d9302c0245.PNG"
-    },
-    {
-      "Id": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\wwwroot\\userpicture\\5c3730a3-0b96-41c6-a2d5-d83d3e2f37dd.PNG",
-      "PackagePath": "staticwebassets\\userpicture\\5c3730a3-0b96-41c6-a2d5-d83d3e2f37dd.PNG"
-    },
-    {
-      "Id": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\wwwroot\\userpicture\\6e4cfa89-dcc8-4894-9bb7-d5eb1c06e97e.PNG",
-      "PackagePath": "staticwebassets\\userpicture\\6e4cfa89-dcc8-4894-9bb7-d5eb1c06e97e.PNG"
-    },
-    {
-      "Id": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\wwwroot\\userpicture\\7984f3ba-9ece-484f-b2b1-abb8ba52396d.jpg",
-      "PackagePath": "staticwebassets\\userpicture\\7984f3ba-9ece-484f-b2b1-abb8ba52396d.jpg"
+      "Id": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\wwwroot\\userpicture\\5c08b82f-672d-4086-b64f-c45b52769782.jfif",
+      "PackagePath": "staticwebassets\\userpicture\\5c08b82f-672d-4086-b64f-c45b52769782.jfif"
     },
     {
       "Id": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\wwwroot\\userpicture\\default.jpg",
       "PackagePath": "staticwebassets\\userpicture\\default.jpg"
-    },
-    {
-      "Id": "C:\\Users\\hcanbaz\\Desktop\\Hidromas-isTakip-Programı\\CrmApp\\wwwroot\\userpicture\\ee27a2d8-9b6b-475d-b1cd-020c8611eb42.PNG",
-      "PackagePath": "staticwebassets\\userpicture\\ee27a2d8-9b6b-475d-b1cd-020c8611eb42.PNG"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.CrmApp.Microsoft.AspNetCore.StaticWebAssets.props",

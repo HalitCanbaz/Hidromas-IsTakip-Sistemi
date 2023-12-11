@@ -3,18 +3,22 @@ using CrmApp.Models.Entities;
 using CrmApp.ViewModel.RoleViewModels;
 using CrmApp.ViewModel.UserViewModels;
 using CrmApp.ViewModel.WorkViewModels;
+using Humanizer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace CrmApp.Controllers
 {
     public class WorksController : Controller
     {
+
         private readonly SignInManager<AppUser> _SignInManager;
         private readonly UserManager<AppUser> _UserManager;
         private readonly CrmAppDbContext _context;
@@ -53,11 +57,47 @@ namespace CrmApp.Controllers
             }
 
             var user = await _UserManager.FindByNameAsync(User.Identity.Name);
-            //var userList = await _context.Users.Where(x => x.Id == user.Id).ToListAsync();
+
+
 
             ViewData["AppUserId"] = new SelectList(_context.Users, "Id", "NameSurName");
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "CategoryName");
             ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName");
+
+            string numberUp = "";
+
+            DateTime thisYear = DateTime.Now;
+            string years = Convert.ToString(thisYear.Year % 100);
+
+            var currentWorks = await _context.Works.OrderByDescending(x => x.WorkOrderNumber).FirstOrDefaultAsync();
+
+            //burada kaldın buradan devam et hata veriyor iş emri 23-0002 yerine 23-2 diye geçti databaseye
+
+            if (currentWorks!=null)
+            {
+                int number = Convert.ToInt32(currentWorks.WorkOrderNumber.Substring(currentWorks.WorkOrderNumber.Length - 4));
+                int numberTotal = number + 1;
+                numberUp = years + "-" + (Convert.ToString(numberTotal));
+            }
+            else
+            {
+                numberUp = years + "-" + "0001";
+            }
+
+
+
+
+            DateTime systemClock = DateTime.Now;
+            DateTime controlClock = systemClock.AddMinutes(30);
+
+            if (controlClock >= model.DeadLine)
+            {
+                TempData["timeMessage"] = "Talep ettiğiniz tarih sistem saatinden minimum 30 dk yukarıda olmak zorundadır!";
+                return View();
+            }
+
+
+
 
             var result = new Works()
             {
@@ -73,12 +113,18 @@ namespace CrmApp.Controllers
                 AppUserId = model.AppUserId,
                 CategoriesId = model.CategoriesId,
                 Departman = model.Departman,
-                WorkOpenDepartman = user.DepartmanId
+                WorkOpenDepartman = user.DepartmanId,
+                WorkOrderNumber = numberUp
+
             };
+
+
+
+
 
             await _context.AddAsync(result);
             await _context.SaveChangesAsync();
-            TempData["message"] = "iş ataması başarılı. Yeni kayıt açabilirsiniz!";
+            TempData["message"] = "İş ataması başarılı. Yeni kayıt açabilirsiniz!";
 
             return RedirectToAction(nameof(WorksController.Create));
 
@@ -94,7 +140,6 @@ namespace CrmApp.Controllers
             {
                 Id = x.Id,
                 Title = x.Title,
-                Description = x.Description,
                 Create = x.Create,
                 DeadLine = x.DeadLine,
                 WhoIsCreate = x.WhoIsCreate,
@@ -153,17 +198,16 @@ namespace CrmApp.Controllers
 
             var userControl = await _UserManager.FindByNameAsync(User.Identity.Name);
 
-            var worksListViewModel = worksList.Where(x => x.WorkOpenDepartman == (userControl.DepartmanId) & x.Status == "beklemede").Select(x => new WorksApprovedList()
+            var worksListViewModel = worksList.Where(x => x.WorkOpenDepartman == userControl.DepartmanId).Select(x => new WorksApprovedList()
             {
                 Id = x.Id,
                 Title = x.Title,
-                Description = x.Description,
                 Create = x.Create,
                 DeadLine = x.DeadLine,
                 WhoIsCreate = x.WhoIsCreate,
                 Status = x.Status
 
-            }).OrderDescending().ToList();
+            }).OrderBy(x => x.Create).ToList();
             return View(worksListViewModel);
         }
 
@@ -173,11 +217,10 @@ namespace CrmApp.Controllers
 
             var userControl = await _UserManager.FindByNameAsync(User.Identity.Name);
 
-            var worksListViewModel = worksList.Where(x => x.AppUserId == userControl.Id & (x.Status == "onaylandı" || x.Status=="başlandı")).Select(x => new WorksApprovedList()
+            var worksListViewModel = worksList.Where(x => x.AppUserId == userControl.Id & (x.Status == "onaylandı" || x.Status == "başlandı")).Select(x => new WorksApprovedList()
             {
                 Id = x.Id,
                 Title = x.Title,
-                Description = x.Description,
                 Create = x.Create,
                 DeadLine = x.DeadLine,
                 WhoIsCreate = x.WhoIsCreate,
@@ -202,14 +245,27 @@ namespace CrmApp.Controllers
 
             return RedirectToAction(nameof(WorksController.MyWorks));
         }
+        public async Task<IActionResult> WorkStatusFinished()
+        {
+            return View();
+        }
+
+
 
         [HttpPost]
-        public async Task<IActionResult> WorkStatusFinished(int id)
+        public async Task<IActionResult> WorkStatusFinished(int id, WorkStatusFinishedViewModel model)
         {
             var work = await _context.Works.FindAsync(id);
 
+            //if (model.FinishedDescription == null)
+            //{
+            //    ViewData["aciklama"] = "İşin açıklaması girilmeden kayıt bitirilemez!";
+            //    return RedirectToAction(nameof(WorksController.DetailWork), id);
+            //}
+
             if (work != null)
             {
+                work.FinishedDescription = model.FinishedDescription;
                 work.Status = "bitti";
 
                 await _context.SaveChangesAsync();

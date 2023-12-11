@@ -229,6 +229,10 @@ namespace CrmApp.Migrations
                     b.Property<int>("WorkOpenDepartman")
                         .HasColumnType("int");
 
+                    b.Property<string>("WorkOrderNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");

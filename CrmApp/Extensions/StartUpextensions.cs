@@ -26,7 +26,7 @@ namespace CrmApp.Extensions
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireDigit = true;
 
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
                 options.Lockout.MaxFailedAccessAttempts = 3;
 
             })

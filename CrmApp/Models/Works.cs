@@ -31,11 +31,13 @@ namespace CrmApp.Models
 
         public int WorkOpenDepartman { get; set; }
 
+        public string WorkOrderNumber { get; set; }
+
         public int AppUserId { get; set; }
         public AppUser AppUser { get; set; }
 
         public int CategoriesId { get; set; }
-        public Categories Categories { get; set; }       
+        public Categories Categories { get; set; }
 
 
 
