@@ -64,25 +64,7 @@ namespace CrmApp.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "CategoryName");
             ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName");
 
-            string numberUp = "";
-
-            DateTime thisYear = DateTime.Now;
-            string years = Convert.ToString(thisYear.Year % 100);
-
-            var currentWorks = await _context.Works.OrderByDescending(x => x.WorkOrderNumber).FirstOrDefaultAsync();
-
-            //burada kaldın buradan devam et hata veriyor iş emri 23-0002 yerine 23-2 diye geçti databaseye
-
-            if (currentWorks!=null)
-            {
-                int number = Convert.ToInt32(currentWorks.WorkOrderNumber.Substring(currentWorks.WorkOrderNumber.Length - 4));
-                int numberTotal = number + 1;
-                numberUp = years + "-" + (Convert.ToString(numberTotal));
-            }
-            else
-            {
-                numberUp = years + "-" + "0001";
-            }
+            
 
 
 
@@ -97,6 +79,42 @@ namespace CrmApp.Controllers
             }
 
 
+
+            string numberUp = "";
+
+            DateTime thisYear = DateTime.Now;
+            string years = Convert.ToString(thisYear.Year % 100);
+
+            var currentWorks = await _context.Works.OrderByDescending(x => x.WorkOrderNumber).FirstOrDefaultAsync();
+
+
+            if (currentWorks != null)
+            {
+                string number = currentWorks.WorkOrderNumber.Substring(currentWorks.WorkOrderNumber.Length - 3);
+                int numberIntl = Convert.ToInt32(number) + 1;
+                string numberString = Convert.ToString(numberIntl);
+
+                if (numberString.Length <= 1)
+                {
+                    numberUp = years + "-" + "000" + (Convert.ToString(numberString));
+
+                }
+                else if (numberString.Length <= 2)
+                {
+                    numberUp = years + "-" + "00" + (Convert.ToString(numberString));
+
+                }
+                else if (numberString.Length <= 3)
+                {
+                    numberUp = years + "-" + "0" + (Convert.ToString(numberString));
+
+                }
+
+            }
+            else
+            {
+                numberUp = years + "-" + "0001";
+            }
 
 
             var result = new Works()
@@ -117,10 +135,6 @@ namespace CrmApp.Controllers
                 WorkOrderNumber = numberUp
 
             };
-
-
-
-
 
             await _context.AddAsync(result);
             await _context.SaveChangesAsync();
@@ -245,6 +259,8 @@ namespace CrmApp.Controllers
 
             return RedirectToAction(nameof(WorksController.MyWorks));
         }
+
+
         public async Task<IActionResult> WorkStatusFinished()
         {
             return View();

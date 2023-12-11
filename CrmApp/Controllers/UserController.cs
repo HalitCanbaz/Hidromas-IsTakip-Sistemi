@@ -57,7 +57,8 @@ namespace CrmApp.Controllers
                 Email = model.Email,
                 PhoneNumber = model.Phone,
                 DepartmanId = model.DepartmanId,
-                RegisterDate = model.RegisterDate
+                RegisterDate = model.RegisterDate,
+                Status = model.Status
             }, model.Password);
 
 
@@ -75,28 +76,63 @@ namespace CrmApp.Controllers
             return View();
         }
 
-        public async Task<IActionResult> UserList()
-        {
 
+        public async Task<IActionResult> UserApprovedList(int id)
+        {
+            Departman departman = new Departman();
+
+            ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName", departman.Id);
 
             /*var currentUse= await _UserManager.FindByNameAsync(User.Identity.Name);*/
-            var userList = await _UserManager.Users.ToListAsync();
+            var userList = await _UserManager.Users.Where(x => x.Status == "beklemede").ToListAsync();
 
-            var userListViewModel = userList.Select(x => new UserListViewModel()
+            var userListViewModel = userList.Select(x => new UserApprovedListViewModel()
             {
                 Id = x.Id,
                 UserName = x.UserName,
                 NameSurname = x.NameSurName,
                 Email = x.Email,
                 Phone = x.PhoneNumber,
-                PictureUrl = x.Picture
-
+                DepartmanId = x.DepartmanId,
+                Status = x.Status
 
             }).ToList();
             //.Where(x => x.UserName == currentUse.UserName)
 
             return View(userListViewModel);
         }
+        //burada kaldın kullanıcı onay sayfası yapıyorsun 
+        public async Task<IActionResult> UserApproved(int id)
+        {
+            Departman departman = new Departman();
+
+            ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName", departman.Id);
+
+
+
+
+
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UserApproved(UserEditViewModel model)
+        {
+            Departman departman = new Departman();
+
+            ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName", departman.Id);
+
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            return View();
+
+        }
+
 
         public IActionResult SignIn()
         {
@@ -169,6 +205,31 @@ namespace CrmApp.Controllers
             };
             return View(userEditViewModel);
         }
+
+
+        public async Task<IActionResult> UserList()
+        {
+
+            /*var currentUse= await _UserManager.FindByNameAsync(User.Identity.Name);*/
+            var userList = await _UserManager.Users.ToListAsync();
+
+            var userListViewModel = userList.Select(x => new UserListViewModel()
+            {
+                Id = x.Id,
+                UserName = x.UserName,
+                NameSurname = x.NameSurName,
+                Email = x.Email,
+                Phone = x.PhoneNumber,
+                PictureUrl = x.Picture
+
+
+            }).ToList();
+            //.Where(x => x.UserName == currentUse.UserName)
+
+            return View(userListViewModel);
+        }
+
+
 
         public async Task<IActionResult> UserEdit()
         {
@@ -246,6 +307,8 @@ namespace CrmApp.Controllers
             return RedirectToAction(nameof(UserController.UserDetails));
 
         }
+
+
 
 
         public IActionResult ChangePassword()

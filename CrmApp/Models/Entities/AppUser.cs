@@ -13,7 +13,10 @@ namespace CrmApp.Models.Entities
         public DateTime? RegisterDate { get; set; }
 
         public bool IsActive { get; set; }
-        
+
+        public  string Status { get; set; }
+
+
         public string? Description { get; set; }        
 
         public ICollection<Works> Works { get; set; }= new HashSet<Works>();

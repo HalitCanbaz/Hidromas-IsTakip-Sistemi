@@ -25,7 +25,7 @@ namespace CrmApp.ViewModel.UserViewModels
         [Display(Name = "Departman Adı")]
         [Required(ErrorMessage = "Departman alanı boş bırakılamaz!")]
         public int DepartmanId { get; set; }
-        
+
 
         [Display(Name = "Şifre")]
         [Required(ErrorMessage = "Şifre alanı boş bırakılamaz!")]
@@ -38,5 +38,7 @@ namespace CrmApp.ViewModel.UserViewModels
         public string PasswordConfirm { get; set; }
 
         public DateTime RegisterDate { get; set; } = DateTime.Now;
+
+        public string Status { get; set; } = "beklemede";
     }
 }
