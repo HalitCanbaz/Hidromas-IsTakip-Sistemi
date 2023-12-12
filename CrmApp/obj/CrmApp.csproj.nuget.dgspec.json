@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\canbaz\\Downloads\\Hidromas-IsTakip-Sistemi-main (1)\\Hidromas-IsTakip-Sistemi-main\\CrmApp\\CrmApp.csproj": {}
+    "C:\\Users\\hcanbaz\\Documents\\GitHub\\Hidromas-IsTakip-Sistemi\\CrmApp\\CrmApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\canbaz\\Downloads\\Hidromas-IsTakip-Sistemi-main (1)\\Hidromas-IsTakip-Sistemi-main\\CrmApp\\CrmApp.csproj": {
+    "C:\\Users\\hcanbaz\\Documents\\GitHub\\Hidromas-IsTakip-Sistemi\\CrmApp\\CrmApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\canbaz\\Downloads\\Hidromas-IsTakip-Sistemi-main (1)\\Hidromas-IsTakip-Sistemi-main\\CrmApp\\CrmApp.csproj",
+        "projectUniqueName": "C:\\Users\\hcanbaz\\Documents\\GitHub\\Hidromas-IsTakip-Sistemi\\CrmApp\\CrmApp.csproj",
         "projectName": "CrmApp",
-        "projectPath": "C:\\Users\\canbaz\\Downloads\\Hidromas-IsTakip-Sistemi-main (1)\\Hidromas-IsTakip-Sistemi-main\\CrmApp\\CrmApp.csproj",
-        "packagesPath": "C:\\Users\\canbaz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\canbaz\\Downloads\\Hidromas-IsTakip-Sistemi-main (1)\\Hidromas-IsTakip-Sistemi-main\\CrmApp\\obj\\",
+        "projectPath": "C:\\Users\\hcanbaz\\Documents\\GitHub\\Hidromas-IsTakip-Sistemi\\CrmApp\\CrmApp.csproj",
+        "packagesPath": "C:\\Users\\hcanbaz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hcanbaz\\Documents\\GitHub\\Hidromas-IsTakip-Sistemi\\CrmApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\canbaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hcanbaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -92,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
