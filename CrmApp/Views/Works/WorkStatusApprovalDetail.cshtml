@@ -1,0 +1,127 @@
+﻿@model DetailWork
+@section Scripts
+    {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+<div class="card card-bordered card-preview">
+    <div class="card-inner">
+        <div id="DataTables_Table_3_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+            <div class="row justify-between g-2 with-export">
+                <div class="card-inner">
+                    <div class="preview-block">
+                        <h4 class="my-4">İşinizin Detayı</h4>
+                        <div class="row gy-4">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-control-wrap">
+                                        <div class="alert alert-pro alert-dark">
+                                            <div class="alert-text">
+                                                <h6>İş Emri Numarası</h6>
+                                                <p>@Model.WorkOrderNumber </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-control-wrap">
+                                        <div class="alert alert-pro alert-dark">
+                                            <div class="alert-text">
+                                                <h6>İşi Açan Kişi</h6>
+                                                <p>@Model.WhoIsCreate </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="alert alert-pro alert-info">
+                                        <div class="alert-text">
+                                            <h6>İşin Konusu</h6>
+                                            <p>@Model.Title </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="alert alert-pro alert-danger">
+                                        <div class="alert-text">
+                                            <h6>İşin Kategorisi</h6>
+                                            <p>@Model.Categories </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="alert alert-pro alert-info">
+                                        <div class="alert-text">
+                                            <h6>İşin Açıldığı Tarih</h6>
+                                            <p>@Model.Create </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="alert alert-pro alert-info">
+                                        <div class="alert-text">
+                                            <h6>Talep Edilen Tarih</h6>
+                                            <p>@Model.DeadLine </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="alert alert-pro alert-success">
+                                        <div class="alert-text">
+                                            <h6>İşin Açıklaması</h6>
+                                            <p>@Model.Description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form asp-controller="Works" asp-action="WorkStatusApprovalDetail" asp-route-id="@Model.Id" method="post">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="alert alert-pro alert-danger">
+                                            <div class="alert-text">
+                                                <h6>İş Ataması</h6>
+                                                <select asp-for="AppUserId" class="form-select js-select2" data-search="on" asp-items="ViewBag.AppUserId"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="alert alert-pro alert-danger">
+                                            <div class="alert-text">
+                                                <h6>Onaylayan Notu</h6>
+                                                <div class="input-group flex-nowrap">
+                                                    <input asp-for="ApprovedNote" class="form-control" placeholder="Lütfen notunuzu bu alana giriniz." />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @if (Model.Status == "beklemede")
+                                {
+
+                                    <div class="col-sm-3 my-4">
+                                        <button type="submit" class="btn btn-warning">Onayla</button>
+                                    </div>
+                                }
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

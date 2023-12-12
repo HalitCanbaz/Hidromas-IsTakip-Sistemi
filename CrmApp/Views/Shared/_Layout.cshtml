@@ -66,7 +66,7 @@
                                             <a asp-controller="Works" asp-action="Create" class="nk-menu-link"><span class="nk-menu-text">Yeni İş Oluştur</span></a>
                                         </li>
                                         <li class="nk-menu-item">
-                                            <a asp-controller="Works" asp-action="WorksApprovedList" class="nk-menu-link"><span class="nk-menu-text">Departmana Açılan Onay Bekleyenler</span></a>
+                                            <a asp-controller="Works" asp-action="WorksApprovedList" class="nk-menu-link"><span class="nk-menu-text">Onay Bekleyenler</span></a>
                                         </li>
                                         <li class="nk-menu-item">
                                             <a asp-controller="Works" asp-action="MyOpenedenWorks" class="nk-menu-link"><span class="nk-menu-text">Departmanın Açtığı İşleri</span></a>
@@ -142,7 +142,9 @@
                                                 <li class="nk-menu-item">
                                                     <a asp-controller="User" asp-action="UserList" class="nk-menu-link"><span class="nk-menu-text">Kullanıcı Listesi</span></a>
                                                 </li>
-
+                                                <li class="nk-menu-item">
+                                                    <a asp-controller="User" asp-action="UserApprovedList" class="nk-menu-link"><span class="nk-menu-text">Onaylanacak Kullanıcılar</span></a>
+                                                </li>
                                             </ul><!-- .nk-menu-sub -->
                                         </li><!-- .nk-menu-item -->
                                         <li class="nk-menu-item has-sub">
@@ -321,7 +323,7 @@
                                             <div class="user-toggle">
                                                 <div class="user-avatar sm">
                                                     <em>
-                                                        @await Component.InvokeAsync("UserPictureComponent")
+                                                         @await Component.InvokeAsync("UserPictureComponent")
                                                     </em>
                                                 </div>
                                                 <div class="user-info d-none d-xl-block">

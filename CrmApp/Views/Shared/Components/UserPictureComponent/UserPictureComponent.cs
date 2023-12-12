@@ -20,15 +20,7 @@ namespace CrmApp.Views.Shared.Components.UserPictureComponent
 
             UserPictureViewModel model = new UserPictureViewModel();
 
-            if (controlUser.Picture == null)
-            {
-                model.PictureUrl = "default";
-            }
-            else
-            {
-                model.PictureUrl = controlUser.Picture;
-            }
-
+            model.PictureUrl = controlUser.Picture;
 
             return View(model);
 

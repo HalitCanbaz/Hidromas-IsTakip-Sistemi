@@ -33,6 +33,8 @@ namespace CrmApp.Models
 
         public string WorkOrderNumber { get; set; }
 
+        public string? ApprovedNote { get; set; }
+
         public int AppUserId { get; set; }
         public AppUser AppUser { get; set; }
 

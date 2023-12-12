@@ -17,6 +17,18 @@
                                     <div class="form-control-wrap">
                                         <div class="alert alert-pro alert-dark">
                                             <div class="alert-text">
+                                                <h6>İş No</h6>
+                                                <p>@Model.WorkOrderNumber </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-control-wrap">
+                                        <div class="alert alert-pro alert-dark">
+                                            <div class="alert-text">
                                                 <h6>İşi Açan Kişi</h6>
                                                 <p>@Model.WhoIsCreate </p>
                                             </div>
@@ -58,7 +70,7 @@
                                 <div class="form-group">
                                     <div class="alert alert-pro alert-info">
                                         <div class="alert-text">
-                                            <h6>İşin İstenen Bitiş Tarihi</h6>
+                                            <h6>Talep Edilen Tarihi</h6>
                                             <p>@Model.DeadLine </p>
                                         </div>
                                     </div>
@@ -74,14 +86,30 @@
                                     </div>
                                 </div>
                             </div>
-                            <form asp-action="WorkStatusFinished" asp-controller="Works" asp-route-id="@Model.Id" method="post">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label class="form-label" for="default-textarea"><h5>İşin Tamamlanma Detayları</h5></label>
-                                        <div class="form-control-wrap">
-                                            <input asp-for="FinishedDescription" type="text" class="form-control form-control-lg" id="name" placeholder="Adınızı ve Soyadınızı Giriniz">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="alert alert-pro alert-danger">
+                                        <div class="alert-text">
+                                            <h6>Onaylayan Notu</h6>
+                                            <div class="input-group flex-nowrap">
+                                                <p>@Model.ApprovedNote</p>
+                                            </div>
                                         </div>
-                                        <span class="text-danger" asp-validation-for="FinishedDescription"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <form asp-action="WorkStatusFinished" asp-controller="Works" asp-route-id="@Model.Id" method="post">
+                                <div class="col-sm-12 my-3">
+                                    <div class="form-group">
+                                        <div class="alert alert-pro alert-success">
+                                            <div class="alert-text">
+                                                <label class="form-label" for="default-textarea"><h5>İşin Teknik Detayları</h5></label>
+                                                <div class="input-group flex-nowrap">
+                                                    <input asp-for="FinishedDescription" type="text" class="form-control form-control-lg" id="name" placeholder="Çözüm notunuzu bu alana yazınız">
+                                                </div>
+                                                <span class="text-danger" asp-validation-for="FinishedDescription"></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 

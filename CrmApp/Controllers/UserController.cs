@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using NuGet.Versioning;
 
 namespace CrmApp.Controllers
 {
@@ -65,7 +66,7 @@ namespace CrmApp.Controllers
 
             if (result.Succeeded)
             {
-                TempData["message"] = "KayıtBaşarılı";
+                TempData["message"] = "Kaydınız alınmıştır. Yönetici onayı sonrasında sisteme giriş yapabilirsiniz.";
                 return RedirectToAction(nameof(UserController.SignUp));
             }
 
@@ -79,57 +80,47 @@ namespace CrmApp.Controllers
 
         public async Task<IActionResult> UserApprovedList(int id)
         {
-            Departman departman = new Departman();
-
-            ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName", departman.Id);
 
             /*var currentUse= await _UserManager.FindByNameAsync(User.Identity.Name);*/
-            var userList = await _UserManager.Users.Where(x => x.Status == "beklemede").ToListAsync();
+            var userList = await _UserManager.Users.Join(_context.Departman, x => x.DepartmanId, y => y.Id, (x, y)
+                => new { Users = x, Departman = y }).Where(x => x.Users.Status == "beklemede").ToListAsync();
 
             var userListViewModel = userList.Select(x => new UserApprovedListViewModel()
             {
-                Id = x.Id,
-                UserName = x.UserName,
-                NameSurname = x.NameSurName,
-                Email = x.Email,
-                Phone = x.PhoneNumber,
-                DepartmanId = x.DepartmanId,
-                Status = x.Status
+                Id = x.Users.Id,
+                UserName = x.Users.UserName,
+                NameSurname = x.Users.NameSurName,
+                Email = x.Users.Email,
+                Phone = x.Users.PhoneNumber,
+                Departman = x.Departman.DepartmanName,
+                Status = x.Users.Status,
 
             }).ToList();
             //.Where(x => x.UserName == currentUse.UserName)
 
             return View(userListViewModel);
         }
-        //burada kaldın kullanıcı onay sayfası yapıyorsun 
-        public async Task<IActionResult> UserApproved(int id)
+        //burada kaldın kullanıcı onay sayfası yapıyorsun         
+
+        public async Task<IActionResult> UserApproved()
         {
-            Departman departman = new Departman();
-
-            ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName", departman.Id);
-
-
-
-
-
-
             return View();
         }
 
+
+
         [HttpPost]
-        public async Task<IActionResult> UserApproved(UserEditViewModel model)
+        public async Task<IActionResult> UserApproved(int id, UserApprovedListViewModel model)
         {
-            Departman departman = new Departman();
+            var result = await _UserManager.Users.Where(x => x.Id == id).SingleOrDefaultAsync();
 
-            ViewData["DepartmanId"] = new SelectList(_context.Departman, "Id", "DepartmanName", departman.Id);
-
-
-            if (!ModelState.IsValid)
+            if (result != null)
             {
-                return View();
+                result.Status = "onaylandı";
+                await _context.SaveChangesAsync();
             }
 
-            return View();
+            return RedirectToAction(nameof(UserController.UserApprovedList));
 
         }
 
@@ -151,18 +142,20 @@ namespace CrmApp.Controllers
             if (controlUser == null)
             {
                 ModelState.AddModelError(string.Empty, "Kullanıcı adı veya şifre yanlış");
+            }
+
+            if (controlUser.Status == "beklemede")
+            {
+                ModelState.AddModelError(string.Empty, "Yönetici onayı bekleniyor.  Lütfen yöneticiniz ile iletişime geçiniz!");
                 return View();
+
             }
 
             var result = await _SignInManager.PasswordSignInAsync(controlUser, model.Password, model.RememberMe, true);
 
-
-
-
             TempData["UserName"] = controlUser.UserName;
             TempData["UserPicture"] = controlUser.Picture;
             TempData["UserMail"] = controlUser.Email;
-
 
             if (result.Succeeded)
             {
@@ -170,16 +163,13 @@ namespace CrmApp.Controllers
 
             }
 
-
             if (result.IsLockedOut)
             {
                 ModelState.AddModelError(string.Empty, "Çok sayıda başarısız giriş denemeniz oldu.     Kullanıcınız 10 dakika sonra açılacaktır.");
                 return View();
             }
 
-
             ModelState.AddModelError(string.Empty, "Kullanıcı adı veya şifre yanlış");
-
 
             return View();
         }

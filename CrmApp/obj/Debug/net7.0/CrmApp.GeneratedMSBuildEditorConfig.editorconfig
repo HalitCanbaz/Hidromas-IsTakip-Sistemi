@@ -120,6 +120,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaWduVXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/hcanbaz/Documents/GitHub/Hidromas-IsTakip-Sistemi/CrmApp/Views/User/UserApprovedList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyQXBwcm92ZWRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hcanbaz/Documents/GitHub/Hidromas-IsTakip-Sistemi/CrmApp/Views/User/UserDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -150,6 +154,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/hcanbaz/Documents/GitHub/Hidromas-IsTakip-Sistemi/CrmApp/Views/Works/WorksApprovedList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcV29ya3NBcHByb3ZlZExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hcanbaz/Documents/GitHub/Hidromas-IsTakip-Sistemi/CrmApp/Views/Works/WorkStatusApprovalDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV29ya3NcV29ya1N0YXR1c0FwcHJvdmFsRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hcanbaz/Documents/GitHub/Hidromas-IsTakip-Sistemi/CrmApp/Views/_ViewImports.cshtml]

@@ -8,7 +8,7 @@
 
         public string NameSurname { get; set; }
 
-        public int DepartmanId { get; set; }
+        public string Departman { get; set; }
 
         public string Email { get; set; }
 

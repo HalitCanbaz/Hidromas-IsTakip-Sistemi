@@ -190,6 +190,9 @@ namespace CrmApp.Migrations
                     b.Property<int>("AppUserId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ApprovedNote")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CategoriesId")
                         .HasColumnType("int");
 

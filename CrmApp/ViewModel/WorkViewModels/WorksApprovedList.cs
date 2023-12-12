@@ -14,5 +14,9 @@
         public string WhoIsCreate { get; set; }
 
         public string Status { get; set; }
+
+        public string WorkOrderNumber { get; set; }
+        public int AppUserId { get; set; }
+
     }
 }
